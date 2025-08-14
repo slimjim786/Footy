@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Football Rules — Quick Guide</title>
+  <meta name="description" content="A clear, quick, and mobile-friendly guide to association football (soccer) rules." />
+  <meta property="og:title" content="Football Rules — Quick Guide" />
+  <meta property="og:description" content="A clear, quick, and mobile-friendly guide to association football (soccer) rules." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root {
+      --bg: #0b1220;          /* slate-950 */
+      --card: #0f172a;        /* slate-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e2e8f0;        /* slate-200 */
+      --accent: #38bdf8;      /* sky-400 */
+      --accent-2: #22d3ee;    /* cyan-400 */
+      --ring: rgba(56, 189, 248, 0.5);
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f8fafc; --card: #ffffff; --muted: #475569; --text: #0f172a; --ring: rgba(14,165,233,.25);} 
+      header .title small { color: #334155; }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1000px 800px at 100% 0, rgba(34,211,238,.08), transparent 60%),
+                  radial-gradient(1000px 800px at 0 100%, rgba(56,189,248,.08), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    header .inner { display: flex; align-items: center; gap: 16px; padding: 16px 24px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid rgba(148,163,184,.25); border-radius: 999px; font-size: 12px; color: var(--muted); background: color-mix(in oklab, var(--card) 88%, transparent); }
+    .dot { width: 8px; height: 8px; background: conic-gradient(from 0deg, var(--accent), var(--accent-2)); border-radius: 999px; }
+    .title { flex: 1; }
+    .title h1 { margin: 0; font-size: clamp(20px, 3vw, 32px); letter-spacing: .2px; }
+    .title small { display: block; color: var(--muted); }
+
+    .searchbar { position: relative; }
+    .searchbar input { width: 100%; padding: 12px 40px 12px 44px; border-radius: 12px; border: 1px solid rgba(148,163,184,.35); background: var(--card); color: var(--text); outline: none; }
+    .searchbar input:focus { box-shadow: 0 0 0 4px var(--ring); border-color: transparent; }
+    .searchbar .icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 18px; opacity: .8; }
+    .searchbar .clear { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); border: 0; background: transparent; color: var(--muted); font-size: 14px; cursor: pointer; }
+
+    main { padding: 24px; display: grid; gap: 16px; }
+    .card { background: var(--card); border: 1px solid rgba(148,163,184,.18); border-radius: 16px; overflow: hidden; }
+    .card header { position: relative; background: none; border: 0; }
+    details { border-top: 1px solid rgba(148,163,184,.18); }
+    details:first-of-type { border-top: 0; }
+    summary { list-style: none; padding: 18px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-weight: 600; }
+    summary::-webkit-details-marker { display: none; }
+    .chev { transition: transform .2s ease; }
+    details[open] .chev { transform: rotate(90deg); }
+    .content { padding: 0 24px 20px 24px; color: var(--text); }
+    .content p { margin: 0 0 12px 0; }
+    .content ul { margin: 0; padding-left: 18px; }
+
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; margin: 4px 4px 0 0; border-radius: 999px; font-size: 12px; color: var(--muted); border: 1px solid rgba(148,163,184,.25); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .info { padding: 16px; border-radius: 12px; background: linear-gradient(180deg, rgba(56,189,248,.10), rgba(2,6,23,0)); border: 1px dashed rgba(56,189,248,.4); }
+
+    footer { padding: 24px; text-align: center; color: var(--muted); font-size: 14px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner container" role="banner">
+      <span class="badge" aria-hidden="true"><span class="dot"></span> Laws of the Game</span>
+      <div class="title">
+        <h1>Football Rules — Quick Guide</h1>
+        <small>Association football (soccer) basics, distilled.</small>
+      </div>
+      <nav aria-label="Quick links">
+        <a class="pill" href="#basics">Basics</a>
+        <a class="pill" href="#offside">Offside</a>
+        <a class="pill" href="#fouls">Fouls & Cards</a>
+        <a class="pill" href="#restarts">Restarts</a>
+      </nav>
+    </div>
+    <div class="container" style="padding-top:0;padding-bottom:16px">
+      <label class="searchbar" aria-label="Search rules">
+        <span class="icon" aria-hidden="true">🔎</span>
+        <input id="search" placeholder="Search: offside, penalty, throw-in…" autocomplete="off" />
+        <button class="clear" id="clearBtn" aria-label="Clear search">✕</button>
+      </label>
+    </div>
+  </header>
+
+  <main class="container" id="rules" role="main">
+    <section class="card" id="basics" aria-labelledby="heading-basics">
+      <header class="container" style="padding:16px 24px">
+        <h2 id="heading-basics" style="margin:0">The Basics</h2>
+      </header>
+      <details open>
+        <summary>
+          Field, Ball, Players
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li>Two teams of <strong>11 players</strong> each (including a goalkeeper).</li>
+            <li>Standard match: <strong>90 minutes</strong> (two 45-minute halves) plus stoppage time.</li>
+            <li>Ball in play unless the referee stops it or it leaves the field.</li>
+            <li>Subs permitted per competition rules (commonly 5 from the bench, used in 3 breaks).</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Referees & VAR
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <p>The match is controlled by the referee, assistants, and fourth official. Some competitions use <strong>VAR</strong> for checkable incidents: goals, penalties, direct red cards, and mistaken identity. The on-field decision stands unless there is a clear and obvious error.</p>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Equipment & Safety
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li>Mandatory: shirt, shorts, socks, shin guards, boots. Colors distinguish teams and officials.</li>
+            <li>No jewelry. Headgear allowed if safe.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" id="offside" aria-labelledby="heading-offside">
+      <header class="container" style="padding:16px 24px">
+        <h2 id="heading-offside" style="margin:0">Offside (simplified)</h2>
+      </header>
+      <details open>
+        <summary>
+          When is a player offside?
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <p>A player is in an <strong>offside position</strong> if, at the moment a teammate plays the ball, they are in the opponents’ half and <em>closer to the goal line than both the ball and the second-last opponent</em>. Being in an offside position is not an offense on its own.</p>
+          <div class="grid">
+            <div class="info"><strong>Offside offense</strong> occurs only if the player becomes involved in active play: interferes with play/an opponent or gains an advantage from the position.</div>
+            <div class="info">No offside from a <strong>goal kick, throw-in, or corner kick</strong>.</div>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Typical offside scenarios
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li>Level with the second-last defender or the ball = <strong>onside</strong>.</li>
+            <li>Receiving the ball from an opponent’s deliberate play (not a save) can reset offside.</li>
+            <li>Blocking a defender’s ability to play the ball may be offside (interfering with an opponent).</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" id="fouls" aria-labelledby="heading-fouls">
+      <header class="container" style="padding:16px 24px">
+        <h2 id="heading-fouls" style="margin:0">Fouls, Misconduct & Cards</h2>
+      </header>
+      <details open>
+        <summary>
+          Direct free kick fouls
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <p>Penal (direct) fouls when careless/reckless/excessive force, e.g.:</p>
+          <ul>
+            <li>kicks or attempts to kick; trips; jumps at; charges; strikes; pushes</li>
+            <li>tackles/impedes with contact; holds; spits; handles the ball deliberately (except goalkeeper in own area)</li>
+          </ul>
+          <p>Inside the defending penalty area by the defense → <strong>penalty kick</strong>.</p>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Indirect free kick offenses
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li>Dangerous play without contact; impeding without contact.</li>
+            <li>Goalkeeper specific: holds the ball &gt;6 seconds; handles after a deliberate kick from a teammate; double-touch on release; etc.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Disciplinary sanctions (cards)
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li><strong>Yellow card</strong>: caution for unsporting behavior, dissent, repeated fouls, delaying restarts, failing to respect distance, entering/re-entering without permission, etc.</li>
+            <li><strong>Red card</strong>: serious foul play, violent conduct, spitting, denying an obvious goal-scoring opportunity (DOGSO), offensive/abusive language, second yellow.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" id="restarts" aria-labelledby="heading-restarts">
+      <header class="container" style="padding:16px 24px">
+        <h2 id="heading-restarts" style="margin:0">Restarts</h2>
+      </header>
+      <details open>
+        <summary>
+          Kick-off & dropped ball
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li><strong>Kick-off</strong>: ball is in play when kicked and clearly moves; can go backward.</li>
+            <li><strong>Dropped ball</strong>: to a single player if play stopped inside the penalty area (goalkeeper) or last touch location; others 4.5m (5yds) away.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Ball out of play: throw-in, goal kick, corner
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li><strong>Throw-in</strong>: when ball fully crosses touchline; both feet on/behind line, throw from behind and over the head.</li>
+            <li><strong>Goal kick</strong>: when attackers last touch and ball crosses goal line (no goal); ball in play when kicked and clearly moves; opponents outside penalty area until then.</li>
+            <li><strong>Corner kick</strong>: when defenders last touch and ball crosses goal line (no goal); ball in play when kicked and moves.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Free kicks & penalties
+          <span class="chev" aria-hidden="true">▶</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li><strong>Direct vs indirect</strong>: indirect requires a second touch to score; referee raises arm until taken.</li>
+            <li><strong>Wall distance</strong>: opponents at least 9.15m (10yds) from the ball unless on goal line between posts.</li>
+            <li><strong>Penalty kick</strong>: ball on spot; goalkeeper on/over goal line until kick; attackers &amp; defenders outside penalty area and arc, behind the ball.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" aria-labelledby="heading-notes">
+      <header class="container" style="padding:16px 24px">
+        <h2 id="heading-notes" style="margin:0">Notes & Attribution</h2>
+      </header>
+      <div class="content">
+        <p>This is a simplified guide inspired by IFAB’s <em>Laws of the Game</em>. For full details, consult the official text for the current season.</p>
+        <p>Made with ♥ for quick learning and revision.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Last updated: 14 Aug 2025 • © You</p>
+  </footer>
+
+  <script>
+    // Simple client-side search filtering
+    const input = document.getElementById('search');
+    const clearBtn = document.getElementById('clearBtn');
+    const details = Array.from(document.querySelectorAll('main details'));
+
+    function filter() {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { details.forEach(d => d.style.display = ''); return; }
+      details.forEach(d => {
+        const text = d.textContent.toLowerCase();
+        d.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+    input.addEventListener('input', filter);
+    clearBtn.addEventListener('click', () => { input.value=''; filter(); input.focus(); });
+
+    // Open/close chevron animation is CSS-driven. Ensure keyboard accessibility
+    document.querySelectorAll('summary').forEach(s => {
+      s.setAttribute('role','button');
+      s.setAttribute('aria-expanded', s.parentElement.open ? 'true' : 'false');
+      s.addEventListener('click', () => {
+        const open = s.parentElement.open;
+        requestAnimationFrame(() => s.setAttribute('aria-expanded', open ? 'true' : 'false'));
+      });
+      s.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); s.click(); }
+      });
+    });
+  </script>
+</body>
+</html>
